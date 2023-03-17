@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
-  const productData = Product.findOne({
+  Product.findOne({
     where: { id: req.params.id },
     include: [Category, { model: Tag, through: ProductTag }],
   })
@@ -76,7 +76,7 @@ router.put('/:id', (req, res) => {
     .then((productTags) => {
       // get list of current tag_ids
       // find all associated tags from ProductTag
-      const productTags = ProductTag.findAll({
+      ProductTag.findAll({
         where: { product_id: req.params.id },
       })
       const productTagIds = productTags.map(({ tag_id }) => tag_id)
