@@ -45,6 +45,7 @@ router.post('/', (req, res) => {
       res.status(200).json(tag)
     })
     .then((productTagIds) => res.status(200).json(productTagIds))
+    console.log("Tag has been posted!")
     .catch((err) => {
       console.log(err)
       res.status(400).json(err)
@@ -60,12 +61,14 @@ router.put('/:id', (req, res) => {
       },
     })
     if (!tagData[0]) {
-      res.status(404).json({ message: 'No tag with this id!' })
+      res.status(404).json
+      // ({ message: 'No tag with this id!' })
       return
     }
     res.status(200).json(tagData)
   } catch (err) {
     res.status(500).json(err)
+    console.log("Tag has been updated")
   }
 })
 
@@ -77,6 +80,7 @@ router.delete('/:id', (req, res) => {
     },
   })
     .then((tag) => res.json(tag))
+    console.log("Tag has been deleted")
     .catch((err) => {
       res.status(500).json(err)
     })
