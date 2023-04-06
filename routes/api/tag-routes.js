@@ -45,11 +45,12 @@ router.post('/', (req, res) => {
       res.status(200).json(tag)
     })
     .then((productTagIds) => res.status(200).json(productTagIds))
-    console.log("Tag has been posted!")
+
     .catch((err) => {
       console.log(err)
       res.status(400).json(err)
     })
+  // console.log('Tag has been posted!')
 })
 
 router.put('/:id', (req, res) => {
@@ -68,7 +69,7 @@ router.put('/:id', (req, res) => {
     res.status(200).json(tagData)
   } catch (err) {
     res.status(500).json(err)
-    console.log("Tag has been updated")
+    // console.log('Tag has been updated')
   }
 })
 
@@ -80,10 +81,10 @@ router.delete('/:id', (req, res) => {
     },
   })
     .then((tag) => res.json(tag))
-    console.log("Tag has been deleted")
     .catch((err) => {
       res.status(500).json(err)
     })
+  // console.log('Tag has been deleted')
 })
 
 module.exports = router

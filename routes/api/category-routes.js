@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
   try {
     const categoryData = Category.create(req.body)
     res.status(200).json(categoryData)
-    console.log("Category has been posted")
+    // console.log("Category has been posted")
   } catch (err) {
     res.status(400).json(err)
   }
@@ -51,7 +51,7 @@ router.put('/:id', (req, res) => {
       return
     }
     res.status(200).json(categoryData)
-    console.log("Category has been updated!")
+    // console.log("Category has been updated!")
   } catch (err) {
     res.status(500).json(err)
   }
@@ -73,7 +73,7 @@ router.delete('/:id', (req, res) => {
     }
 
     res.status(200).json(categoryData)
-    console.log("Category has been deleted!")
+    // console.log("Category has been deleted!")
   } catch (err) {
     res.status(500).json(err)
   }
